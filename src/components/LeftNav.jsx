@@ -6,16 +6,16 @@ import { categories } from "../utils/constants";
 import { Context } from "../context/contextApi";
 
 const LeftNav = () => {
-    const { selectCategories, setSelectCategories, mobileMenu } =
+    const { selectedCategory, setSelectedCategory, mobileMenu } =
         useContext(Context);
 
     const navigate = useNavigate();
     const clickHandler = (name, type) => {
         switch (type) {
             case "category":
-                return setSelectCategories(name);
+                return setSelectedCategory(name);
             case "home":
-                return setSelectCategories(name);
+                return setSelectedCategory(name);
             case "menu":
                 return false;
             default:
@@ -40,7 +40,7 @@ const LeftNav = () => {
                                     navigate("/");
                                 }}
                                 className={`${
-                                    selectCategories === item.name
+                                    selectedCategory === item.name
                                         ? "bg-white/[0.15]"
                                         : ""
                                 }`}
